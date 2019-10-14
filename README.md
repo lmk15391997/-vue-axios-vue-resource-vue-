@@ -1,4 +1,4 @@
-# -vue-axios-vue-resource-vue-
+# vue-axios  vue-resource
 使用vue-axios和vue-resource解决vue中调用网易云接口跨域的问题
 
 1. 远程代理
@@ -7,9 +7,11 @@
 
 首先我们定义一个常量API_PROXY
 
-const API_PROXY = 'https://bird.ioliu.cn/v1/?url='
+````const API_PROXY = 'https://bird.ioliu.cn/v1/?url='````
 
 然后在axios请求里面拼接一下字符串
+
+````axios.get(API_PROXY + 'http://music.163.com/api/playlist/detail?id=19723756')````
 
 2. node代理
 
@@ -26,6 +28,7 @@ const API_PROXY = 'https://bird.ioliu.cn/v1/?url='
         }
       }
     }
+    
 第一行的'/api'指的是虚拟路径
 target指的是目标地址，也就是实际api的地址
 pathRewrite规则重写

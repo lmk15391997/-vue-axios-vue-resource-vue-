@@ -16,6 +16,7 @@ const API_PROXY = 'https://bird.ioliu.cn/v1/?url='
 打开config/index.js
 修改proxyTable: {}部分
 修改为
+
     proxyTable: {
       '/api': {
         target: 'http://music.163.com/api',
@@ -29,20 +30,23 @@ const API_PROXY = 'https://bird.ioliu.cn/v1/?url='
 target指的是目标地址，也就是实际api的地址
 pathRewrite规则重写
 然后在代码页面修改一下请求地址
-  mounted: function () {
-    this.$http.get('/api/playlist/detail?id=19723756', {}, {
-      headers: {
+
+    mounted() {
+      this.$http.get('/api/playlist/detail?id=19723756', {}, {
+        headers: {
 
       },
       emulateJSON: true
-    }).then(function (res) {
-      this.musics = res.data.result.tracks
-      console.log(this.musics)
-    }, function (error) {
-      console.log(error)
-    })
-  }
+      }).then((res)=> {
+        this.musics = res.data.result.tracks
+        console.log(this.musics)
+      }, (error)=>{
+        console.log(error)
+      })
+    }
 
 作者：iMax
+
 链接：https://juejin.im/post/5a5f1c94518825733d6918d9
+
 来源：掘金
